@@ -1,0 +1,74 @@
+:root {
+    --cell-size: 150px;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main {
+    flex: 1;
+    align-content: center;
+}
+
+#game {
+    width: calc(var(--cell-size) * 3);
+    height: calc(var(--cell-size) * 3);
+    border: 2px solid transparent;
+    border-collapse: collapse;
+
+    td {
+        width: var(--cell-size);
+        height: var(--cell-size);
+        border: 1px solid grey;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+        font-size: calc(var(--cell-size) / 2);
+
+        &.clear {
+            cursor: pointer;
+
+            &:hover {
+                background-color: lightgray;
+            }
+        }
+
+        &.x::after {
+            content: "\274c";
+        }
+
+        &.o::after {
+            content: "\2b55";
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+#result {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .8);
+    font-size: 2em;
+
+    button {
+        font-size: inherit;
+    }
+}
