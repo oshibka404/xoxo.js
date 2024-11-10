@@ -9,7 +9,7 @@ const playerChar = {
 }
 
 document.getElementById("game").addEventListener("click", (e) => {
-    if (e.target.classList.contains("clear")) {
+    if (e.target.classList.contains("clear") {
         e.target.classList.replace("clear", state.currentPlayer)
         state.currentPlayer = state.currentPlayer === "x" ? "o" : "x"
         state.winner = checkWinner()
@@ -25,7 +25,7 @@ document.getElementById("game").addEventListener("click", (e) => {
 
 document.getElementById("restart").addEventListener("click", reset)
 
-function reset() {
+const reset = () => {
     state.winner = undefined
     state.currentPlayer = "x"
     for (const cell of document.getElementsByTagName("td")) {
@@ -35,7 +35,7 @@ function reset() {
 }
 
 function checkWinner() {
-    const cells = [...document.getElementsByTagName("td")].map(({className}) => className === "clear" ? "" : className)
+    const cells = document.getElementsByTagName("td").map(({className}) => className === "clear" ? "" : className)
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
